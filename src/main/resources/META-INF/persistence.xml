@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+                                 https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="miUnidadPersistencia" transaction-type="RESOURCE_LOCAL">
+        <class>org.example.Clases.Provincia</class>
+        <class>org.example.Clases.Pais</class>
+        <class>org.example.Clases.Bodega</class>
+        <class>org.example.Clases.Resena</class>
+        <class>org.example.Clases.Varietal</class>
+        <class>org.example.Clases.Vino</class>
+        <class>org.example.Clases.RegionVitivinicola</class>
+
+        <!-- Añade aquí otras clases de entidad -->
+        
+        <properties>
+             <!-- Configuración de SQLite -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite:vinos.db"/>
+            
+            <!-- Configuración de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.community.dialect.SQLiteDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            
+            <!-- Configuración adicional para SQLite -->
+            <property name="hibernate.connection.foreign_keys" value="true"/>
+            <property name="hibernate.connection.handling_mode" value="DELAYED_ACQUISITION_AND_RELEASE_AFTER_STATEMENT"/>
+        </properties>
+    </persistence-unit>
+</persistence>
